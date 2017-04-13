@@ -11,6 +11,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'klen/python-mode'
+Plugin 'derekwyatt/vim-scala'
 call vundle#end()
 filetype plugin indent on
 
