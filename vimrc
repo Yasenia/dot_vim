@@ -21,6 +21,6 @@ set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-autocmd FileType ruby,javascript set softtabstop=2 | set shiftwidth=2
+autocmd FileType scala,ruby,javascript set softtabstop=2 | set shiftwidth=2
 autocmd FileType vim,java,python set softtabstop=4 | set shiftwidth=4
 
