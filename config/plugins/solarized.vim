@@ -1,3 +1,3 @@
 let g:solarized_termcolors=256
-colorscheme Solarized
+colorscheme solarized
 set background=dark
