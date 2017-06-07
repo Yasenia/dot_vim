@@ -7,6 +7,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe' 
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -18,6 +19,7 @@ filetype plugin indent on
 source ~/.vim/config/plugins/pythonmode.vim
 source ~/.vim/config/plugins/airline.vim
 source ~/.vim/config/plugins/nerdtree.vim
+source ~/.vim/config/plugins/tagbar.vim
 source ~/.vim/config/plugins/solarized.vim
 source ~/.vim/config/plugins/youcompleteme.vim
 source ~/.vim/config/plugins/ack.vim

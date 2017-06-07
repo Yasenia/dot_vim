@@ -1,5 +1,6 @@
 autocmd vimenter * NERDTree
 autocmd bufenter * call ExitIfOnlyNerdtree()
+let g:NERDTreeWinSize = 32
 noremap <Leader>n :NERDTreeToggle<Cr>
 
 function ExitIfOnlyNerdtree()
@@ -7,3 +8,4 @@ function ExitIfOnlyNerdtree()
         q
     endif
 endfunction
+autocmd vimenter * NERDTree
