@@ -28,4 +28,3 @@ set softtabstop=4
 set expandtab
 autocmd FileType scala,ruby,javascript,yaml set softtabstop=2 | set shiftwidth=2
 autocmd FileType vim,java,groovy,python set softtabstop=4 | set shiftwidth=4
-
