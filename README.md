@@ -59,5 +59,6 @@ Launch the vim, and type `:PluginInstall<Cr>`.
 
 ``` shell
 cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
 ./install.py
 ```
