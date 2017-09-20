@@ -13,7 +13,7 @@ set hlsearch
 set encoding=utf-8
 set langmenu=en_US.utf-8
 set wildmode=list:longest
-set suffixesadd+=.java,.scala,.sc,.groovy,.js,.json,.py,.rb,.yml,.yaml,.conf,.xml
+set suffixesadd+=.java,.scala,.sc,.groovy,.js,.ts,.json,.py,.rb,.yml,.yaml,.conf,.xml
 set noerrorbells
 set visualbell
 set guioptions-=L " hide the left scroll bar

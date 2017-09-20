@@ -1,14 +1,16 @@
+[TOC]
 # dot_vim
 ## Overview
 The configuration of my vim.
 
 ### Plugins
+
 |name|function|suggest|
 |:--|:--|:--|
 |[vundle.vim](https://github.com/VundleVim/Vundle.vim)|Manage all plugins|Required|
 |[vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)|The theme of vim|Recommend|
 |[vim-airline](https://github.com/vim-airline/vim-airline)|The status bar of vim|Recommend|
-|[vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)|The theme of vim-airline|Recommend|
+|[vim-airline-themes](https://github.pcom/vim-airline/vim-airline-themes)|The theme of vim-airline|Recommend|
 |[nerdtree](https://github.com/scrooloose/nerdtree)|The file explore of vim|Recommend|
 |[tagbar](https://github.com/majutsushi/tagbar)|The tag bar of vim|Optional|
 |[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)|Auto complete for coding|Optional|
