@@ -1,3 +1,2 @@
-let g:solarized_termcolors=256
+let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
-set background=dark

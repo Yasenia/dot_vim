@@ -5,6 +5,7 @@ source ~/.vim/config/keymap.vim
 
 syntax enable
 set number
+set colorcolumn=120
 set nospell
 set spelllang=en_us
 set history=1000
@@ -26,5 +27,6 @@ set autoindent
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-autocmd FileType scala,ruby,javascript,yaml set softtabstop=2 | set shiftwidth=2
+set backspace=indent,eol,start
+autocmd FileType scala,ruby,javascript,typescript,yaml set softtabstop=2 | set shiftwidth=2
 autocmd FileType vim,java,groovy,python set softtabstop=4 | set shiftwidth=4
