@@ -21,7 +21,10 @@ set guioptions-=L " hide the left scroll bar
 set guioptions-=r " hide the right scroll bar
 set guioptions-=T " hide the tool bar
 
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
 autocmd BufNewFile,BufRead *.sc set filetype=scala
+autocmd BufNewFile,BufRead *Jenkinsfile* set filetype=groovy
 
 set autoindent
 set shiftwidth=4

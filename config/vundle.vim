@@ -14,12 +14,15 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'chr4/nginx.vim'
+Plugin 'udalov/kotlin-vim'
+
 call vundle#end()
 filetype plugin indent on
 

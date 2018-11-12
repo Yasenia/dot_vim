@@ -1,4 +1,4 @@
-let g:pymode_python = 'python'
+"let g:pymode_python = 'python'
 let g:pymode = 1
 let g:pymode_paths = ['.']
 let g:pymode_trim_whitespaces = 1
