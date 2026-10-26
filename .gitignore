@@ -1,3 +1,11 @@
+# Local state is outside this repository; ignore old deployments too.
 .DS_Store
 .ropeproject/
 bundle/
+plugged/
+local.vim
+*.spl
+*.swp
+*.swo
+__pycache__/
+*.pyc

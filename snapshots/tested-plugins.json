@@ -1,0 +1,38 @@
+{
+  "tested_on": "2026-10-26",
+  "vim": "macOS Vim 9.1 arm64",
+  "plugins": [
+    {
+      "repository": "junegunn/vim-plug",
+      "commit": "7e5aae5e1187842cb0b1d8def986e48d481c4410"
+    },
+    {
+      "repository": "morhetz/gruvbox",
+      "commit": "ef8864bb42bf244f0295d1c5a403b27e3d139695"
+    },
+    {
+      "repository": "vim-airline/vim-airline",
+      "commit": "8dc1bd0a116de527f6bc58c1d04386ba357c624f"
+    },
+    {
+      "repository": "preservim/nerdtree",
+      "commit": "690d061b591525890f1471c6675bcb5bdc8cdff9"
+    },
+    {
+      "repository": "ctrlpvim/ctrlp.vim",
+      "commit": "0065942ef13ce28293e2b26cb622d035da050b44"
+    },
+    {
+      "repository": "tpope/vim-surround",
+      "commit": "3d188ed2113431cf8dac77be61b842acb64433d9"
+    },
+    {
+      "repository": "tpope/vim-fugitive",
+      "commit": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0"
+    },
+    {
+      "repository": "airblade/vim-gitgutter",
+      "commit": "90b75207bd9b55d8ac4af15f72b4e935462014d0"
+    }
+  ]
+}

@@ -1,66 +1,128 @@
-[TOC]
 # dot_vim
+
 ## Overview
-The configuration of my vim.
+
+My Vim configuration, with language-specific indentation, a dark theme, file navigation, and Git integration.
+
+- Space as the leader key.
+- Line numbers, search highlighting, and a column guide at 120 characters.
+- Four-space indentation by default, with filetype-specific settings.
+- Persistent undo and buffer switching without automatically saving changes.
+- Built-in syntax support for JavaScript, TypeScript, JSX, TSX, Python, Scala, Kotlin, and Nginx.
 
 ### Plugins
 
-|name|function|suggest|
+| Name | Function | Usage |
 |:--|:--|:--|
-|[vundle.vim](https://github.com/VundleVim/Vundle.vim)|Manage all plugins|Required|
-|[vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)|The theme of vim|Recommend|
-|[vim-airline](https://github.com/vim-airline/vim-airline)|The status bar of vim|Recommend|
-|[vim-airline-themes](https://github.pcom/vim-airline/vim-airline-themes)|The theme of vim-airline|Recommend|
-|[nerdtree](https://github.com/scrooloose/nerdtree)|The file explore of vim|Recommend|
-|[tagbar](https://github.com/majutsushi/tagbar)|The tag bar of vim|Optional|
-|[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)|Auto complete for coding|Optional|
-|[ctrlp.vim](https://github.com/kien/ctrlp.vim)|Quickly search files|Recommend|
-|[ack.vim](https://github.com/mileszs/ack.vim)|Quickly search text|Optional|
-|[vim-surround](https://github.com/tpope/vim-surround)|Quickly type surroundings|Recommend|
-|[python-mode](https://github.com/python-mode/python-mode)|Python support|Optional|
-|[vim-scala](https://github.com/derekwyatt/vim-scala)|Scala support|Optional|
+| [vim-plug](https://github.com/junegunn/vim-plug) | Plugin management | Required |
+| [gruvbox](https://github.com/morhetz/gruvbox) | Color scheme | Enabled |
+| [vim-airline](https://github.com/vim-airline/vim-airline) | Status line and buffer list | Enabled |
+| [NERDTree](https://github.com/preservim/nerdtree) | File explorer | Enabled |
+| [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) | Fuzzy file and buffer search | Enabled |
+| [vim-surround](https://github.com/tpope/vim-surround) | Edit surrounding brackets, quotes, and tags | Enabled |
+| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Git commands | Enabled |
+| [vim-gitgutter](https://github.com/airblade/vim-gitgutter) | Git diff signs | Enabled |
+| [Tagbar](https://github.com/preservim/tagbar) | Code outline | Optional |
+| [ALE](https://github.com/dense-analysis/ale) | Manual code formatting | Optional |
 
-### Key Binding
+### Key Bindings
 
-|key|function|
+`<Leader>` means Space. Plugin mappings are available after the corresponding plugin is enabled and installed.
+
+| Key / Command | Function |
 |:--|:--|
-|Space|Leader|
-|\<Leader\>r|Run current file(shell/python)|
-|\<S-Cr\>|Insert a blank line above current location and return to normal mode|
-|\<Leader\>y|Copy text to system clipboard|
-|\<Leader\>p|Paste text from system clipboard|
+| `<Leader>n` | Toggle NERDTree |
+| `<C-p>` / `<Leader>a` | Search files with CtrlP |
+| `:CtrlPBuffer` | Search open buffers |
+| `:CtrlPMRUFiles` | Search recently used files |
+| `[b` / `]b` | Switch to the previous / next buffer |
+| `[<Space>` / `]<Space>` | Insert a blank line above / below the current line |
+| `<C-l>` | Clear search highlighting and redraw |
+| `<Leader>y` | Yank to the system clipboard; use `<Leader>yy` for a whole line |
+| `<Leader>p` | Paste from the system clipboard |
+| `<Leader>r` | Save and run the current Shell or Python file |
+| `<Leader>t` | Toggle Tagbar, when enabled |
+| `<Leader>f` | Format with ALE, when enabled and configured |
+| `:Git` | Open the Fugitive Git interface |
 
+Clipboard mappings require Vim with `+clipboard`. Running Python files requires `python3` on PATH. Shell files support simple `sh`, `bash`, and `zsh` shebangs; files without a shebang use `sh`.
 
-## How to use
-### Clone `dot_vim` as `~/.vim`.
-``` shell
+## How to Use
+
+Requires Vim 8 or later, Git, and curl. Back up any existing `~/.vim` and `~/.vimrc` before installing.
+
+### Clone the Configuration
+
+```sh
 git clone https://github.com/Yasenia/dot_vim.git ~/.vim
 ```
 
-### Use `~/.vim` as the config of vim.
-* If you have already use `~/.vimrc` file as the config of vim:
-  ``` shell
-  echo 'source ~/.vim/vimrc' >> ~/.vimrc
-  ```
-* Or else, just do nothing.
+### Set Up vim-plug
 
-### Setup vundle.
-
-``` shell
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```sh
+data="${XDG_DATA_HOME:-$HOME/.local/share}/dot_vim"
+mkdir -p "$data/autoload"
+curl --fail --location \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+  --output "$data/autoload/plug.vim"
 ```
 
-### Select the plugins as you wish.
-Comment the plugins witch you are not need in the file `~/.vim/config/vundle.vim`.
+Plugins and undo files are stored under this data directory, separately from the configuration repository.
 
-### Install Plugins in vim.
+### Load the Configuration
 
-Launch the vim, and type `:PluginInstall<Cr>`.
+Add the following line to `~/.vimrc`:
 
-### Setup plugin: YouCompleteMe
+```vim
+execute 'source ' . fnameescape(expand('~/.vim/vimrc'))
+```
 
-``` shell
-cd ~/.vim/bundle/YouCompleteMe
-git submodule update --init --recursive
-./install.py
+To try the configuration without changing `~/.vimrc`:
+
+```sh
+vim -u "$HOME/.vim/vimrc"
+```
+
+### Install Plugins
+
+Open Vim and run:
+
+```vim
+:PlugInstall
+```
+
+Restart Vim after installation. Use `:PlugStatus` to check the plugins and `:messages` to view startup messages.
+
+### Optional Plugins
+
+Create `~/.vim/local.vim` to enable optional plugins:
+
+```vim
+let g:dotvim_enable_tagbar = 1
+let g:dotvim_enable_ale = 1
+
+" Example: use Ruff to format Python files.
+let g:ale_fixers = {'python': ['ruff_format']}
+```
+
+Restart Vim, run `:PlugInstall`, and restart again.
+
+Tagbar requires a compatible ctags implementation, preferably Universal Ctags. ALE formatters such as Ruff must be installed separately. Automatic linting and formatting on save are disabled by default.
+
+### Customize the Configuration
+
+| File / Directory | Content |
+|:--|:--|
+| `config/options.vim` | General editor settings |
+| `config/keymaps.vim` | Key bindings |
+| `config/autocmds.vim` | Editor events |
+| `config/plugins.vim` | Plugin list and optional features |
+| `config/plugins/ui.vim` | Theme and UI settings |
+| `after/ftplugin/` | Filetype-specific settings |
+| `local.vim` | Local variables, excluded from Git |
+
+To use a different data directory, set it in `local.vim` and install vim-plug there:
+
+```vim
+let g:dotvim_data_dir = expand('~/.local/share/dot_vim')
 ```

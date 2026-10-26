@@ -1,35 +1,29 @@
+" Vim 8+ configuration; paths do not depend on where the repository is checked out.
+scriptencoding utf-8
+set nocompatible
+let g:dotvim_root = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+execute 'set runtimepath^=' . fnameescape(g:dotvim_root)
+if filereadable(g:dotvim_root . '/local.vim')
+  execute 'source ' . fnameescape(g:dotvim_root . '/local.vim')
+endif
+let g:dotvim_data_dir = get(g:, 'dotvim_data_dir',
+      \ (empty($XDG_DATA_HOME) ? expand('~/.local/share') : $XDG_DATA_HOME) . '/dot_vim')
+execute 'set runtimepath^=' . fnameescape(g:dotvim_data_dir)
+execute 'set runtimepath+=' . fnameescape(g:dotvim_root . '/after')
 let mapleader = ' '
-
-source ~/.vim/config/vundle.vim
-source ~/.vim/config/keymap.vim
-
-syntax enable
-set number
-set colorcolumn=120
-set nospell
-set spelllang=en_us
-set history=1000
-set t_Co=256
-set hlsearch
-set encoding=utf-8
-set langmenu=en_US.utf-8
-set wildmode=list:longest
-set suffixesadd+=.java,.scala,.sc,.groovy,.js,.ts,.json,.py,.rb,.yml,.yaml,.conf,.xml
-set noerrorbells
-set visualbell
-set guioptions-=L " hide the left scroll bar
-set guioptions-=r " hide the right scroll bar
-set guioptions-=T " hide the tool bar
-
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
-autocmd BufNewFile,BufRead *.sc set filetype=scala
-autocmd BufNewFile,BufRead *Jenkinsfile* set filetype=groovy
-
-set autoindent
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set backspace=indent,eol,start
-autocmd FileType scala,ruby,javascript,typescript,yaml set softtabstop=2 | set shiftwidth=2
-autocmd FileType vim,java,groovy,python set softtabstop=4 | set shiftwidth=4
+for s:file in ['options', 'plugins', 'keymaps', 'autocmds']
+  execute 'source ' . fnameescape(g:dotvim_root . '/config/' . s:file . '.vim')
+endfor
+unlet s:file
+" vim-plug enables filetype support; retain a standalone fallback.
+if !get(g:, 'dotvim_plugins_ready', 0)
+  filetype plugin indent on
+endif
+if !exists('g:syntax_on')
+  syntax enable
+endif
+if get(g:, 'dotvim_plugins_ready', 0) && isdirectory(g:dotvim_data_dir . '/plugged/gruvbox')
+  colorscheme gruvbox
+else
+  colorscheme default
+endif
